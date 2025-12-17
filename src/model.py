@@ -16,7 +16,7 @@ class LogisticRegression:
             z = X @ self.w + self.b
             y_hat = sigmoid(z)
 
-            dw = (X.t @ (y_hat-y))/m
+            dw = (X.T @ (y_hat-y))/m
             db = (np.sum(y_hat-y))/m
 
             self.w = self.w - self.lr * dw
@@ -30,4 +30,5 @@ class LogisticRegression:
         return sigmoid(z)
     
     def predict(self, X, threshold = 0.5):
+
         return (self.predict_proba(X)>=threshold).astype(int)
