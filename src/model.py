@@ -30,4 +30,5 @@ class LogisticRegression:
         return sigmoid(z)
     
     def predict(self, X, threshold = 0.5):
+
         return (self.predict_proba(X)>=threshold).astype(int)
